@@ -2,13 +2,13 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            files: 'client/scripts/**/*.js'
+            files: 'client/assets/app/**/*.js'
         },
         watch: {
             client : {
-                files: ['client/scripts/**/*.js',
-                    'client/views/**/*.html',
-                    'client/styles/*.css'
+                files: ['client/app/**/*.js',
+                    'client/app/views/**/*.html',
+                    'client/app/styles/*.css'
                 ],
                 tasks: ['jshint', 'uglify','copy','cssmin'],
                 options: {
@@ -19,26 +19,24 @@ module.exports = function(grunt) {
         uglify: {
             build: {
                 src: [
-                    'client/scripts/client.js',
-                    'client/scripts/controllers/*.js',
-                    'client/scripts/factories/*.js'
+                    'client/app/scripts/*.js'
                 ],
-                dest: 'server/public/assets/scripts/client.min.js'
+                dest: 'server/public/app/scripts/client.min.js'
             }
         },
         cssmin: {
             target: {
                 files: [{
                     expand: true,
-                    cwd: 'client/styles',
+                    cwd: 'client/app/styles',
                     src: '*.css',
-                    dest: 'server/public/assets/styles/',
+                    dest: 'server/public/app/styles/',
                     ext: '.min.css'
                 }]
             }
         },
         copy: {
-            angular: {
+            /*angular: {
                 expand: true,
                 cwd: 'node_modules',
                 src: [
@@ -56,18 +54,18 @@ module.exports = function(grunt) {
                     "angular-smart-table/dist/*.js",
                     "angular-smart-table/dist/*.map"
                 ],
-                "dest": "server/public/assets/vendors/"
-            },
+                "dest": "server/public/app/vendors/"
+            },*/
             html: {
                 expand: true,
-                cwd: 'client/views/',
+                cwd: 'client/app/views/',
                 src: [
                     "index.html",
                     "routes/*.html",
                     "partials/*.html",
                     "templates/*.html"
                 ],
-                "dest": "server/public/assets/views/"
+                "dest": "server/public/app/views/"
             },
             bootstrap: {
                 expand: true,
@@ -75,23 +73,7 @@ module.exports = function(grunt) {
                 src: [
                     "dist/**/*"
                 ],
-                "dest": "server/public/assets/vendors/bootstrap/"
-            },
-            amCharts: {
-                expand: true,
-                cwd: "node_modules/amcharts3/",
-                src: [
-                    "amcharts/**/*"
-                ],
-                "dest": "server/public/assets/vendors/"
-            },
-            dateUtils: {
-                expand: true,
-                cwd: "node_modules/",
-                src: [
-                    "date-utils/lib/date-utils.min.js"
-                ],
-                "dest": "server/public/assets/vendors/"
+                "dest": "server/public/app/vendors/bootstrap/"
             }
         }
 

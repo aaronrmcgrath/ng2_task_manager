@@ -7,7 +7,7 @@ var path = require('path');
 
 // Main catch all that serves index.html
 router.get('/',function(req,res) {
-    var joinedpath = path.join(__dirname, '../public/assets/views/index.html');
+    var joinedpath = path.join(__dirname, '../public/app/views/index.html');
     console.log(joinedpath);
     res.sendFile(joinedpath);
 });
