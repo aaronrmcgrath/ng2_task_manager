@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         },
         watch: {
             client : {
-                files: ['client/app/**/*.js',
+                files: ['client/app/scripts/*.js',
                     'client/app/views/**/*.html',
                     'client/app/styles/*.css'
                 ],
