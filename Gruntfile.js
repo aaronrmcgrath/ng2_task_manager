@@ -2,7 +2,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            files: 'client/assets/app/**/*.js'
+            files: 'client/assets/app/scripts/*.js'
         },
         watch: {
             client : {
@@ -15,7 +15,7 @@ module.exports = function(grunt) {
                     spawn: false
                 }
             }
-        },
+        },/*
         uglify: {
             build: {
                 src: [
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
                 ],
                 dest: 'server/public/app/scripts/client.min.js'
             }
-        },
+        },*/
         cssmin: {
             target: {
                 files: [{
